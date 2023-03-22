@@ -4,6 +4,7 @@ def checkForSize(firstNumber, secondNumber):
         return False
     return True
 
+
 def isContainingSameNumbers(firstNumber, secondNumber):
     checkedNumbers = []
     for i in range(len(firstNumber)):
@@ -11,19 +12,21 @@ def isContainingSameNumbers(firstNumber, secondNumber):
             continue
         else:
             if(firstNumber[i] != secondNumber[i]):
-                return "Brojevi nisu isti"
+                return "Numbers are NOT SAME"
 
             checkedNumbers.append(firstNumber[i])
 
-    return "Brojevi su isti"
+    return "Numbers are SAME"
+
 
 def isAlreadyChecked(checkedNumbers, target):
     for number in checkedNumbers:
         if number == target:
             return True
-    
+
     else:
         return False
+
 
 def checkNumbers(firstNumber, secondNumber):
     strSortedFirst = sorted(str(firstNumber))
@@ -34,10 +37,12 @@ def checkNumbers(firstNumber, secondNumber):
 
     return isContainingSameNumbers(strSortedFirst, strSortedSecond)
 
+
 def main():
     firstNumber = int(input("Enter first number: "))
     secondNumber = int(input("Enter second number: "))
 
     print(checkNumbers(firstNumber, secondNumber))
+
 
 main()

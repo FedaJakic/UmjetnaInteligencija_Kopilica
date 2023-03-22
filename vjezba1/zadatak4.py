@@ -1,11 +1,12 @@
+import random
 BINGO = 0
 LOWER = -1
 HIGHER = 1
 
-import random
 
 def generateGuess(rangeDown, rangeUp):
     return random.randint(rangeDown, rangeUp)
+
 
 def checkGuess():
     while True:
@@ -19,24 +20,25 @@ def checkGuess():
             elif resolve.lower() == "h":
                 return HIGHER
             else:
-               print("Incorect answer!") 
+                print("Incorect answer!")
         else:
             print("Incorect answer!")
-    
+
+
 def validNumber(rangeDown, rangeUp, guess):
     if guess >= rangeDown and guess < rangeUp:
         return True
     else:
         return False
 
+
 def main():
     rangeDown = 0
     rangeUp = 1001
-    guess = -1
+    guess = int(rangeUp / 2)
     endGame = False
-    print("Imagine number beetwem <", rangeDown, ",", rangeUp, ">")
+    print("Imagine number beetwem <", rangeDown, ",", rangeUp - 1, ">")
     while not endGame:
-        guess = generateGuess(rangeDown, rangeUp)
         print("My Guess is [", guess, "]")
 
         if validNumber(rangeDown, rangeUp, guess):
@@ -52,5 +54,8 @@ def main():
                 endGame = True
         else:
             print("Invalid guess")
+
+        guess = generateGuess(rangeDown, rangeUp)
+
 
 main()
